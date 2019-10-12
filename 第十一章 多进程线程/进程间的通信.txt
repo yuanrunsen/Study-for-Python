@@ -1,0 +1,14 @@
+
+多进程是不会共享变量的。多进程的隔离的，数据会重新复制一份，相互独立。
+可以用Queue来通信
+但是不能用queue里的Queue
+要用multiprocessing里的Queue，但是如果用进程程池的话，也不能用这个Queue
+只有multiprocessing.process才可以 multiprocessing.pool就不可以
+可以用multiprocessing里的Manager().Queue()
+
+也可用管道，multiprocessing.pipe
+但是pipe只能适用于两个进程，一个send一个recevie
+pipe的性能高于queue的
+
+共享内存 Manager().dict() list,arrary等等。 
+使用共享内存的时候不要忘记数据的同步，要用Manager()里的lock Rlock等

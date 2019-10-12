@@ -1,0 +1,8 @@
+python 3.5以后支持的
+
+
+用async声明函数
+await将控制权交出去
+然后把await理解为 yield from
+
+这么写有个好处就是，如果用yield写的话 会有点乱，因为有的yield是生成器，有的是协程

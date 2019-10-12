@@ -1,0 +1,59 @@
+class Field:
+    pass
+
+class CharField(Field):
+    def __init__(self,max_length,defalut):
+        self.max_length=max_length
+        self.defalut=defalut
+        self.value=defalut
+    def __set__(self, instance, value):
+        self.value=value
+    def __get__(self, instance, owner):
+        return self.value
+
+class IntField(Field):
+    def __init__(self,min_val,max_val):
+        self.min_val=min_val
+        self.max_val=max_val
+    def __set__(self, instance, value):
+        self.value=value
+    def __get__(self, instance, owner):
+        return self.value
+
+
+class ModelMetaClass(type):
+    def __new__(cls, name,base,attrs,**kwargs):
+        if name=='BaseModel':
+            return super().__new__(cls,name,base,attrs,**kwargs)
+        fields={}
+        meta={}
+        for k,v in attrs.items():
+            if isinstance(v,Field):
+                fields[k]=v
+        attrs_meta=attrs.get('Meta',None)
+        meta['db_name']=name.lower()
+        if attrs_meta:
+            db_name=attrs_meta.__dict__.get('db_name',None)
+            if db_name:
+                meta['db_name']=db_name
+        attrs['_fields']=fields
+        attrs['_meta']=meta
+        return super().__new__(cls,name,base,attrs,**kwargs)
+
+class BaseModel(metaclass=ModelMetaClass):
+    def __init__(self,*args,**kwargs):
+        for k,v in kwargs.items():
+            setattr(self,k,v)
+        print('ss')
+
+
+class Person(BaseModel):
+    name=CharField(max_length=6, defalut='Admin')
+    age=IntField(min_val=1,max_val=100)
+    class Meta:
+        db_name='person'
+
+
+p=Person(age='123')
+p.name='yrs'
+print(p.name)

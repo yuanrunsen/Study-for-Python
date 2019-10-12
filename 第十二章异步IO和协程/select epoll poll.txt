@@ -1,0 +1,11 @@
+from selectors import DefaultSelector
+
+在windows下运行 就是select
+在linux下就是epoll
+
+
+select 本身是不支持register的
+回调是由程序员完成的（系统自动完成的是aio异步io了，现在是io多路复用）
+
+
+事件循环+回调+select/poll/epoll   是一种单线程 tornado twist gevent都是这种模式

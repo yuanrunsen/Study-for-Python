@@ -1,0 +1,43 @@
+由于GIL 
+对于耗CPU的操作
+多线程没法并发利用CPU
+多进程可以。
+
+对于IO操作
+多线程由于多进程，进程切换消耗要大于多线程。会释放锁
+
+
+多进程编程直接把 ThreadPoolExecutor换成 ProcessPoolExecutor即可
+
+
+
+multiprocessing 是更加底层的包 ProcessPoolExecutor内部还是调用的multiprocessing 这个
+
+更推荐使用ProcessPoolExecutor
+
+
+pro=multiprocessing.Process(target=,arg=)
+
+pro.pid
+pro.start()
+pro.join()
+
+和threading.Thread是差不多的
+
+同样的 可以继承multiprocessing.Process重写run方法
+
+
+
+
+再介绍一个multiprocessing 里的进程池
+
+
+p=multiprocessing.Pool()
+r=p.apply_async(target,args) 提交一个进程
+p.close()提交完后要关闭进程池，说明不再接受提交。
+p.join() 等待进程池里的所有进程执行完成
+
+
+for i in pool.imap(target,可迭代参数)：  以map方法添加进程。
+
+r.get()

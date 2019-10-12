@@ -1,0 +1,4 @@
+aiohttp是基于asyncio实现的 http client/server
+
+aiomysql是异步mysql驱动，支持连接池和sqlalchemy的集成
+aiomysql 要指定charset='utf-8',autocommit=True

@@ -1,0 +1,10 @@
+PS:ThreadPoolExecutor(线程池)     ProcessPoolExecutor(进程池)
+ThreadPoolExecutor
+
+
+当我们在协程里 一定要用到阻塞的IO，比如使用pymysql，那我们就可以使用线程（池）
+from concurrent.futures import ThreadPoolExecutor
+
+executor = ThreadPoolExecutor(个数)
+task = loop.run_in_executor(executor, 要做为线程的函数， 参数)
+loop.run_until_complete(asyncio.wait(task))

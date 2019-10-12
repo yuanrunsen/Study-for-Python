@@ -1,0 +1,2 @@
+sequence不可变 
+它的子类mutablesequence可变，因为多了几个魔法函数

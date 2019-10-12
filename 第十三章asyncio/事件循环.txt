@@ -1,0 +1,32 @@
+loop = asyncio.get_event_loop()
+tasks = [xiecheng1,xiecheng2,....]
+loop.run_until_complete(asyncio.wait(tasks))   #类似于线程的join
+
+
+
+获取协程返回值
+
+第一种写法：
+loop = asyncio.get_event_loop()
+get_future = asyncio.ensure_future(xiecheng)  #其实ensure_future的源码就是创建task,并且往loop里添加task.
+loop.run_until_complete(get_future)
+get_future.result()就是返回值
+
+
+第二种写法：
+loop = asyncio.get_event_loop()
+task = loog.create_task(xiecheng)
+loop.run_until_complete(task)
+task.result()就是返回值
+
+
+
+还可以给协程加 callback
+
+def 函数(task):  这里要写一个参数，因为默认会传一个task过来
+    pass           
+
+task.add_done_callback(函数名) 
+
+如果想传递参数from functools import partial
+task.add_done_callback(partial(函数名,参数)) 

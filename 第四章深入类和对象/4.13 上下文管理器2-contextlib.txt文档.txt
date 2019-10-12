@@ -1,0 +1,20 @@
+简化with语句
+
+import contextlib
+
+@contextlib.contextmanager
+def file_open(file_name):
+	xxxxx #这里实现类似__enter__的代码
+	yield{}#需要实现一个生成器
+	XXXXX #这里实现类似__exit__的代码
+
+
+
+用的时候
+with file_open('boddy.txt') as f:
+	print('x')
+
+
+
+实际效果是：
+先执行yield之前的XXX然后print x 然后执行yield之后的xxxxx

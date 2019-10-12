@@ -1,0 +1,7 @@
+deque
+
+Counter
+Counter(传入一个可迭代对象) 返回一个value由大到小的字典
+.most_common（n）可以返回出现最大次数的前n个 返回的是列表 里面key value是元祖
+原理也是堆的top n 
+OrderDict

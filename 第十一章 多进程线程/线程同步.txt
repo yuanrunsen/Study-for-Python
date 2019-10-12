@@ -1,0 +1,19 @@
+1 锁 threading.Lock()
+用锁会影响性能
+有可能会引起死锁
+
+
+Lock就是普通的锁
+RLock 可以允许在同一个线程内 多次acquire，release次数要和acquire相等
+
+
+
+2 条件变量 condition (内部还是用 RLock锁来实现)
+threading.condition
+
+
+3   信号量 sempahore （内部使用的condition）
+threading.Sempahore(value)
+
+调用一次acquire就会减一 
+release就会加1 

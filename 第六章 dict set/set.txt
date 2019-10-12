@@ -1,0 +1,11 @@
+frozenset是不可变集合
+像这种不可变类型都可以做为dict的key
+
+
+
+res=set1.difference(set2)
+返回的是存在于set1中但不存在于set2的集合
+
+-差集
+&交集
+|并集

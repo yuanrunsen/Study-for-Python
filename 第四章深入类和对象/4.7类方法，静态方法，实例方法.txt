@@ -1,0 +1,7 @@
+@classmethod
+@staticmethod
+
+
+
+cls 是类对象
+self是实例对象

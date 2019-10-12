@@ -1,0 +1,13 @@
+@property
+def xxx(self):
+	return value
+
+
+这样 对象.xxx就可以 动态的把函数转换为属性（这是get方法）
+
+
+@xxx.setter
+def xxx(self,value):
+	self._xxx=value
+
+这样对象.xxx=value就可以 动态的给_xxx属性赋值

@@ -1,0 +1,22 @@
+python和别的语言不同，python的变量实际上是一个指针。
+python del语句 一般采用引用计数器，和C++不一样 C++是直接删，python是引用计数器减一
+
+
+a+=b和 a=a+b是不一样的
+
+a+=是默认是调用extend
+a=a+b是a+b新生成一个对象再赋值给a 
+
+
+
+一个经典的代码
+def fd(a=[]):
+	a.append(1)
+	return a
+
+
+a=fd()
+b=fd()
+
+a=[1,1]
+b=[1,1]

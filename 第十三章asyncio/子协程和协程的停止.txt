@@ -1,0 +1,16 @@
+一、停止
+
+asyncio会把loop放到future里，也会把future放到loop里构成了一个环状
+
+取消loop和任务
+以task举例
+for task in asyncio.Task.all_tasks():
+    task.cancel() #会有返回值true或者false
+
+loop.stop()
+loop.run_forver() #这个要加上，不然关不掉
+loop.close()
+
+
+
+创建资源，gnocchi能多久生效

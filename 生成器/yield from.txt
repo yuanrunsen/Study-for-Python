@@ -1,0 +1,23 @@
+python 3.3中的新特性
+
+
+yield from可以把里面的每一个值yield出来
+而yiled不行
+
+如yield [1,2,3] 和yield from [1,2,3]
+
+yield :for循环的时候一个打印的是[1,2,3],yield什么就打印什么
+yield from :循环的时候打印的是1,2,3
+
+
+
+
+
+可以理解为 yield from是一个通道
+send throw等这些操作都是发给yield from后面的
+
+ 有yield from的函数叫做委托生成器
+
+yield from 后面的叫子生成器 （当然yield后面也可以跟可迭代对象）
+
+子生成器运行结束return的值返回到yield from的左边

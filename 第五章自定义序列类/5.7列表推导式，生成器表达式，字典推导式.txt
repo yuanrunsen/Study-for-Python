@@ -1,0 +1,17 @@
+列表生成式
+[i for i in range(21) if i%2 ==1]
+
+或者
+[函数(i) for i in range(21) if i%2==1]
+
+列表生成式性能较高
+
+
+
+生成器表达式
+把[]换成（） 就变成了一个生成器而不是tuple或set
+
+
+字典推导式
+如将key value反转
+{value:key for key ,value in mydict}

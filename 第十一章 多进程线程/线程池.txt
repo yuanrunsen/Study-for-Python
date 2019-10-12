@@ -1,0 +1,29 @@
+用来管理线程
+
+主线程中可以获取某一个线程的状态或某一个任务的状态，以及返回值
+
+当一个线程完成的时候我们住线程能理解知道
+
+可以让多线程和多进程编码接口一致
+
+
+from concurrent.futures import ThreadPoolExecutor，as_completed，wait
+
+max_worker线程的数目，这个只是同时运行的数目，并不是最大submit的数目
+
+executor=ThreadPoolExecutor(max_workers=XX)
+task1 =excutor.submit(函数，(参数))  通过submit函数提交执行的函数到线程池中，submit是非阻塞的
+
+
+task1.done()用于判断该任务是否完成
+task1.result()用于获取return的结果。 阻塞
+task1.cancel()用于取消该任务，只能在开始执行之前才能取消的掉
+
+
+all_task=[]
+as_completed（all_task）可以获取已经完成的task的结果
+for future in as_completed(all_task):
+    data=future.result()        哪个先完成就处理哪个
+
+
+wait(task,return_when) 第一个参数是任务列表，第二个参数是等多久等什么条件

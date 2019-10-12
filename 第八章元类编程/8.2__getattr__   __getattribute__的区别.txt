@@ -1,0 +1,16 @@
+__getattr__这个魔法函数是在查找不到属性的时候调用
+
+比如说一个类里没有某个字段
+但是对象.字段去调用了，他找不到这个字段属性，就会调用__getattr__这个函数
+比如uesr.name
+def __getattr__(self,item):
+	这里的item就是'name' 注意是字符串类型的
+	return xxxxxx
+
+
+
+
+
+__getattribute__ 这个函数的是无条件进入这个函数(不论找不找的到) 优先级高于__getattr__
+但是尽量不重写这个函数，因为如果写不好 会导致整个类的属性获取有问题。
+内部实际上是 __getattribute__里找不到会调用__getattr__

@@ -1,0 +1,22 @@
+什么是元类
+元类就是创建类的类(type)
+
+python3 的写法
+
+class XXX(type):
+ 	def __new__(cls,*args,**kwargs)
+		pass
+
+
+class XXXXXX(metaclass=XXX):
+	pass
+
+
+
+python创建类的时候会先找metaclass 然后通过metaclass去创建类
+否则就用type去创建
+
+如上的例子，XXX就变成了一个元类，可以用它来控制类的创建
+即把new方法委托给了元类去做，而不需要在具体的类里去做
+
+args第一个参数是类名，第二个参数是继承的类放到元组里，第三个参数是dict

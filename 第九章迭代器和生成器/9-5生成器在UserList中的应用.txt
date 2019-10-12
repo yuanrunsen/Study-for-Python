@@ -1,0 +1,6 @@
+list是不要去继承的，因为是用C语言写的
+
+UserList是给用户继承的
+
+
+UsetList的内部__iter__方法就是用的生成器写法yield

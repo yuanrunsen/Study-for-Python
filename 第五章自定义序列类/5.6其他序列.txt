@@ -1,0 +1,22 @@
+array deque
+
+
+deque是默认线程安全的，list不是
+
+tuple会作为常量在编译时确定 加载速度很快，并且tuple可以当做dict的key
+
+array只能存放指定类型
+
+import array
+array.array(类型)
+array的性能比list高很多
+
+
+
+list的底层实现
+typedef struct {
+    PyObject_VAR_HEAD
+    PyObject **ob_item;
+    Py_ssize_t allocated;
+} PyListObject
+

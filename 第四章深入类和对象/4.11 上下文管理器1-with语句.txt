@@ -1,0 +1,24 @@
+try
+except
+finally
+
+如果finally有return就不会return上面的
+
+with上下文管理器协议:
+如果自定义对象想使用with语句
+需要实现两个魔法函数 
+__enter__
+__exit__
+
+
+这样使用with的时候 先自动进入enter,最后执行exit.
+
+一般写一个类的时候，在enter里写获取资源的逻辑，exit里释放获取到的资源
+然后 使用 with 语句 就会自动调用这两个函数。
+
+例子：
+class Sal:
+	pass
+
+with Sal() as sal:
+	pass

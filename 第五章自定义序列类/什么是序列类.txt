@@ -1,0 +1,6 @@
+容器序列 list tuple deque 放什么都可以
+
+bytes bytearray array.array 放相同类型
+
+list deque bytearray array 可变
+str tuple bytes 不可变

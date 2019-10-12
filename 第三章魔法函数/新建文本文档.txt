@@ -1,0 +1,6 @@
+__getitem__
+
+
+
+__itr
+__len__

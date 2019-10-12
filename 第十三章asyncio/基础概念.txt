@@ -1,0 +1,27 @@
+asyncio是python用于解决异步IO编程的一整套解决方案，集成了协程和多线程多进程
+
+高并发编程：
+事件循环+回调+IO多路复用（epoll）
+协程的话，回调就改为协程
+
+协程里不要使用同步阻塞，在协程里都要用异步库
+
+
+from functions import partial可以包装函数传递参数
+
+
+
+loop=asyncio.get_event_loop()
+task=loop.create_task(协程)
+task.add_done_callback(函数)
+loop.run_until_complete(可迭代的各种参数 如task,asyncio.wait(协程列表))
+task.result()
+
+gather比wait更加高层，可以将任务分组管理，使用时优先考虑gather(定制型高，功能强大)，如asyncio.gather(*group1,*group2)
+或者
+group1=[协程，协程。。。]
+group1=asyncio.gather(*group1)
+#group.cancel()就可以取消任务
+loop.run_until_complete(asyncio.gather(group1))
+gather和wait用法一样，但是gather传参数的时候，如果是多个写成，要写成*协程列表
+

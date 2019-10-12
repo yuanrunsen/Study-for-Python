@@ -1,0 +1,29 @@
+[start:end:step]
+
+注意反着切的时候 start要比end大
+切片操作是返回的新列表
+
+
+实现一个squence序列 需要实现以下魔法函数：
+__reversed__
+_getitem__
+__len__
+__iter__
+__contains__
+
+如果实现一个可变的sequence 还要实现：
+__setitem__
+__delitem__
+insert
+
+只要实现__getitem__这个魔法函数的类就可以实现可切片和按下标取值的对象
+例如django中的queryset
+
+
+
+讲解
+def __getitem__(self,item)
+切片的时候这个item是一个slice对象如[1,2,1]中的1,2,1就是一个slice对象
+取值的时候是一个下标.
+
+其实是实现了这些协议

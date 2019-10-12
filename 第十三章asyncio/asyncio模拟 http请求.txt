@@ -1,0 +1,32 @@
+asyncio是没有提供http协议的接口，只支持底层的tcp udp
+
+aiohttp支持（后面会提得到）
+
+
+
+asyncio.open_connection() 返回一个协程，里面帮我们注册了回调
+但是好像只是包装了网络连接
+
+
+async for
+
+
+获取协程返回的结果
+f=asyncio.ensure_future(协程) 转换为协程
+loop.run_until_complete 可以接收协程task或者gather或者future
+然后f.result()就可以获取协程返回的结果了（获取返回结果方法有很多）
+但是这样写只能是等到loop里的协程都执行完了才能返回
+
+
+如果要执行完一个协程就获取一次结果要这么做：
+定义一个协程
+async def xxx():
+    tasks=[]
+    for xx in xxx:
+        tasks.append(asyncio.ensure_future(协程))
+    for task in asyncio.as_complete(tasks):
+        result = await task
+        print(result)
+
+
+loop.run_until_complete(xxx())

@@ -1,0 +1,16 @@
+生成器不止可以产出值，也可以接收值，使用send方法
+比如 a=yield 'b'
+
+调用next的时候 就会产出 b
+调用send的时候就会把值传给a,send方法还会让生成器再次运行到下个yield
+在用send发送一个非None值之前，必须启动生成器。启动生成器是send(None)
+
+
+close方法可以关闭生成器
+throw可以抛异常，这个抛异常是往生成器里抛 例子：
+def a():
+    yield 1
+
+
+aa=a()
+aa.throw(Exception, 'my error')

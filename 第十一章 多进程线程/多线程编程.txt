@@ -1,0 +1,21 @@
+import threading
+
+a=threading.Thread(target=,args=())
+a.start()
+
+
+主线程退出的时候就立即kill掉子线程
+a.setDaemon(True)
+
+
+主线程不执行剩余，等待子线程执行完再执行主线程剩下的
+a.join()
+
+
+
+
+
+
+继承threading.Thread重写run方法
+
+然后生成一个对象 a 剩下和之前一样。

@@ -1,0 +1,10 @@
+dict.fromkeys(list,default_Value)将一个可迭代对象转换为dict
+dict.items()返回元组
+dict.update()可以传一个可迭代对象，注意字典也是可迭代对象，只不过dict的默认迭代是他的key,可以调用它的.keys() .values() .items() 使他以别的方式迭代
+如[('a',1),('b',2)]
+
+
+from collections import defaultdict
+
+a=defaultdict(str/int/dict)
+不会报错keyerror有默认值

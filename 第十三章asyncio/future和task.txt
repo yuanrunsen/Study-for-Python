@@ -1,0 +1,8 @@
+task是future的子类
+
+
+task里面做了：
+启动协程
+捕获stopiteration的异常并把返回值设置到result里
+
+调用ensure_future的时候源码里返回的是task 

@@ -1,0 +1,7 @@
+这些函数是针对loop什么时候调用自定义callback函数而言的，可以传递参数
+loop.call_soon      立刻调用
+loop.call_later     延时调用，可以指定延时时间
+loop.call_at        以loop内部的时钟时间，loop.time(),来指定运行时间
+loop.call_soon_threadsafe 这是一个线程安全的call_soon
+
+这些基本用不到，很偏底层
