@@ -17,3 +17,7 @@ threading.Sempahore(value)
 
 调用一次acquire就会减一 
 release就会加1 
+
+
+xxx=threading.local()  可以让多线程公共xxx这个对象并且彼此间数据相互隔离
+也可以继承threading.local这个类 去自定义 
