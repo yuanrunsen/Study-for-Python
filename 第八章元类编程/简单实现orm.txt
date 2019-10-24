@@ -57,3 +57,8 @@ class Person(BaseModel):
 p=Person(age='123')
 p.name='yrs'
 print(p.name)
+
+
+注意type的new方法 和普通class里的new方法 不太一样
+type里的new是控制类（对象）生成的
+class里的new是控制实例（对象）生成的
